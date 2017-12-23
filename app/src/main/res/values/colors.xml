@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#373a41</color>
+    <color name="colorPrimaryDark">#343434</color>
+    <color name="colorAccent">#2ca247</color>
+    <color name="colorTabbar">#45c01a</color>
+    <color name="colorUserName">#343434</color>
+    <color name="colorUserMsg">#999</color>
+</resources>
