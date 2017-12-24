@@ -26,9 +26,13 @@ import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
@@ -43,7 +47,7 @@ import com.lithium.MyChat.Class.Msg;
 import org.litepal.crud.DataSupport;
 
 
-public class MsgActivity extends Activity {
+public class MsgActivity extends BaseActivity {
 
     private static final String TAG = "MsgActivity";
     private List<Msg> msgList = new ArrayList<>();
@@ -69,6 +73,13 @@ public class MsgActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_msg);
+
+        //toolbar控件
+        Toolbar menu_toolbar = (Toolbar) findViewById(R.id.msg_toolbar);
+        setSupportActionBar(menu_toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_toolbar_back);
+
 
         Intent intent =  getIntent();
         username = intent.getStringExtra("username");
@@ -320,5 +331,25 @@ public class MsgActivity extends Activity {
         Msg msg3 = new Msg("This is TOP.",Msg.TYPE_RECEIVED);
         msgList.add(msg3);*/
         }
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.msg_toolbar, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+//                onDestroy();
+                Toast.makeText(this, "Back", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.person:
+                Toast.makeText(this, "Friend_info", Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                break;
+        }
+        return true;
     }
 }

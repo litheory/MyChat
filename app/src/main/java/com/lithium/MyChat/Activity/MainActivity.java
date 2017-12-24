@@ -25,7 +25,7 @@ import com.lithium.MyChat.Fragment.MyinfoFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 //
     //主要要继承自FragmentActivity,这样才能在初始适配器类是使用getSupportFragmentManager方法获取FragmentManager对象
     private ViewPager mViewPager;
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         //toolbar控件
-        Toolbar menu_toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar menu_toolbar = (Toolbar) findViewById(R.id.main_toolbar);
         setSupportActionBar(menu_toolbar);
 
        //Fragment控件操作
@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.toolbar, menu);
+        getMenuInflater().inflate(R.menu.main_toolbar, menu);
         return true;
     }
     @Override

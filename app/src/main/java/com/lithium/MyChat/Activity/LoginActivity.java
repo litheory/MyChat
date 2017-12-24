@@ -16,7 +16,7 @@ import com.lithium.MyChat.R;
 
 import org.litepal.LitePal;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
 
     private SharedPreferences pref;
     private SharedPreferences.Editor editor;
